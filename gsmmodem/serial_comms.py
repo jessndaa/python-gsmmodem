@@ -100,7 +100,7 @@ class SerialComms(object):
                     rxBuffer.append(ord(data))
                     if rxBuffer[-readTermLen:] == readTermSeq:
                         # A line (or other logical segment) has been read
-                        line = rxBuffer[:-readTermLen].decode()
+                        line = rxBuffer[:-readTermLen].decode('ISO-8859-1')
                         rxBuffer = bytearray()
                         if len(line) > 0:
                             #print 'calling handler'
